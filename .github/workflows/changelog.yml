@@ -1,18 +1,13 @@
 name: Update changelog
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  
+  release:
+    types:
+      - created
 jobs:
-  update_changelog:
-    runs-on: ubuntu-latest
+  changelog:
+    runs-on: ubuntu-20.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Auto Changelog
-        uses: ardalanamini/auto-changelog@v4.0.1
-        with:
-          release-name: v1.0.0
+      - name: "✏️ Generate release changelog"
+        uses: heinrichreimer/action-github-changelog-generator@v2.3
+        
