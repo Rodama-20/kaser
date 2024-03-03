@@ -1,0 +1,16 @@
+name: Update changelog
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  
+jobs:
+  update_changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Auto Changelog
+        uses: ardalanamini/auto-changelog@v4.0.1
