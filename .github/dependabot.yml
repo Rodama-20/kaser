@@ -4,3 +4,7 @@ updates:
     directory: "/frontend"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "pipenv"
+    directory: "/api"
+    schedule:
+      interval: "weekly"
