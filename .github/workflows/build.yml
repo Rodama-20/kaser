@@ -32,7 +32,10 @@ jobs:
           coverage xml
         working-directory: ./api
       - name: Override Coverage Source Path for Sonar
-        run: sed -i "s/<source>\/home\/runner\/work\/kaser\/kaser<\/source>/<source>\/github\/workspace<\/source>/g" coverage.xml
+        run: |
+          cat coverage.xml
+          sed -i "s/<source>\/home\/runner\/work\/Rodama-20\/kaser<\/source>/<source>\/github\/workspace<\/source>/g" coverage.xml
+          cat coverage.xml
         working-directory: ./api
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
