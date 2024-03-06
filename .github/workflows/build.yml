@@ -31,8 +31,6 @@ jobs:
           coverage report
           coverage xml 
         working-directory: ./api
-      - name: Override Coverage Source Path for Sonar
-        run: sed -i "s/<source>\/home\/runner\/work\/hre-ml\/hre-ml<\/source>/<source>\/github\/workspace<\/source>/g" /home/runner/work/hre-ml/hre-ml/api/coverage.xml
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
