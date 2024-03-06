@@ -27,6 +27,8 @@ jobs:
         pip install pipenv
         pipenv requirements --dev > requirements.txt
         pip install -r requirements.txt
+      working-directory: ./api
     - name: Run Tests
       run: |
         python manage.py test
+      working-directory: ./api
