@@ -1,0 +1,30 @@
+# build stage
+FROM python:alpine as builder
+
+RUN pip install --upgrade pip
+
+RUN pip install pipenv
+
+COPY ./Pipfile.lock .
+
+RUN pipenv requirements > requirements.txt
+
+
+# production stage
+
+FROM python:alpine
+
+RUN pip install --upgrade pip
+
+RUN pip install uvicorn
+
+WORKDIR /app
+
+COPY --from=builder /requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY . .
+
+ENTRYPOINT [ "uvicorn", "api.asgi:application", "--host", "0.0.0.0", "--port", "8001"]
+
