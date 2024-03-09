@@ -1,2 +1,7 @@
 # Pipfile
 # Pipfile.lock
+
+.coverage
+coverage
+
+.gitignore
