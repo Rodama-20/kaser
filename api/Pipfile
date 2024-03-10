@@ -8,6 +8,7 @@ djangorestframework = "*"
 django-cors-headers = "*"
 dj-database-url = "*"
 drf-spectacular = "*"
+django-oauth-toolkit = "*"
 
 [dev-packages]
 coverage = "*"

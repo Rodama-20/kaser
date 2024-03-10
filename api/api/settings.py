@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "corsheaders",
+    "oauth2_provider",
     "rest_framework",
     "drf_spectacular",
 ]
@@ -60,13 +61,11 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CORS_ALLOWED_ORIGINS = [ "http://localhost:3000",
-                        "http://localhost:8080"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "http://localhost:8080"]
 
 CORS_ALLOW_CREDENTIALS = True
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost:3000",
-                        "http://localhost:8080"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://localhost:8080"]
 
 ROOT_URLCONF = "api.urls"
 
@@ -139,13 +138,29 @@ STATIC_ROOT = BASE_DIR / "static"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# OAUTH2 PROVIDER SETTINGS
+OAUTH2_PROVIDER = {
+    # this is the list of available scopes
+    "SCOPES": {
+        "read": "Read scope",
+        "write": "Write scope",
+        "groups": "Access to your groups",
+    }
+}
+
 
 # REST Framework settings
 REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
-#SPECATCULAR SETTINGS
+# SPECATCULAR SETTINGS
 SPECTACULAR_SETTINGS = {
     "TITLE": "Kaser API",
     "DESCRIPTION": "API for the Kaser website",
