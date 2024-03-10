@@ -3,9 +3,10 @@ from django.shortcuts import render
 from rest_framework import permissions, status, viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from oauth2_provider.models import AccessToken
 
-from .serializers import UserSerializer
+from .models import Album, Photo
+
+from .serializers import UserSerializer, PhotoSerializer, AlbumSerializer
 
 
 # Create your views here.
@@ -18,7 +19,6 @@ class UserViewSet(viewsets.ModelViewSet):
         detail=False,
         methods=["post"],
         url_path="register",
-        serializer_class=None,
         permission_classes=[permissions.AllowAny],
     )
     def register(self, request):
@@ -44,3 +44,13 @@ class UserViewSet(viewsets.ModelViewSet):
         
         user = User.objects.create_user(username=username, password=password)
         return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
+    
+class PhotoViewSet(viewsets.ModelViewSet):
+    queryset = Photo.objects.all()
+    serializer_class = PhotoSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class AlbumViewSet(viewsets.ModelViewSet):
+    queryset = Album.objects.all()
+    serializer_class = AlbumSerializer
+    permission_classes = [permissions.IsAuthenticated]
