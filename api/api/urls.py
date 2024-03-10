@@ -24,4 +24,5 @@ urlpatterns = [
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path("api/docs/", SpectacularSwaggerView.as_view(url_name="schema"), name="docs"),
     path("api/o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
+    path("api/", include("kaser.urls")),
 ]

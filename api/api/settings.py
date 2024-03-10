@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "oauth2_provider",
     "rest_framework",
     "drf_spectacular",
+    "kaser",
 ]
 
 MIDDLEWARE = [

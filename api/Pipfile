@@ -9,6 +9,7 @@ django-cors-headers = "*"
 dj-database-url = "*"
 drf-spectacular = "*"
 django-oauth-toolkit = "*"
+pillow = "*"
 
 [dev-packages]
 coverage = "*"
