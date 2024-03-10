@@ -18,6 +18,8 @@ RUN pip install --upgrade pip
 
 RUN pip install uvicorn
 
+RUN pip install psycopg_binary psycopg
+
 WORKDIR /app
 
 COPY --from=builder /requirements.txt .
