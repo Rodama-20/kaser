@@ -1,0 +1,7 @@
+openapi: 3.0.3
+info:
+  title: Kaser API
+  version: 0.1.0
+  description: API for the Kaser website
+paths: {}
+components: {}

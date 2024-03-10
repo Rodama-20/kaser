@@ -5,9 +5,13 @@ name = "pypi"
 
 [packages]
 djangorestframework = "*"
+django-cors-headers = "*"
+dj-database-url = "*"
+drf-spectacular = "*"
 
 [dev-packages]
 coverage = "*"
+black = "*"
 
 [requires]
 python_version = "3.10"
