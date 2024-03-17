@@ -16,6 +16,7 @@ services:
       - api
     volumes:
       - django-static:/usr/share/nginx/html/static
+      - django-media:/usr/share/nginx/html/media
   
   api:
     build: api
@@ -27,6 +28,7 @@ services:
       - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     volumes:
       - django-static:/app/static
+      - django-media:/app/media
   
   gateway:
     build: gateway
@@ -45,3 +47,4 @@ services:
 volumes:
   db-data:
   django-static:
+  django-media:
