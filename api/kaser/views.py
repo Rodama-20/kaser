@@ -43,7 +43,7 @@ class UserViewSet(viewsets.ModelViewSet):
             )
         
         user = User.objects.create_user(username=username, password=password)
-        return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
+        return Response(UserSerializer(user, context={"request": request}).data, status=status.HTTP_201_CREATED)
     
 class PhotoViewSet(viewsets.ModelViewSet):
     queryset = Photo.objects.all()
