@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 djangorestframework = "3.15.1"
 django-cors-headers = "4.3.1"
-dj-database-url = "2.1.0"
+dj-database-url = "2.2.0"
 drf-spectacular = "0.27.2"
 pillow = "10.3.0"
 djangorestframework-simplejwt = "5.3.1"
